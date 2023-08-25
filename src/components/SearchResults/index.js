@@ -12,6 +12,7 @@ import {
 export default function SearchResults() {
   const searchActions = useSearchActions();
 
+  // On mount, check for query parameters and setup search state.
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("query");
