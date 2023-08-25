@@ -1,4 +1,5 @@
-'use client'
+import { useEffect } from "react";
+import { useSearchActions } from "@yext/search-headless-react";
 import {
   SearchBar,
   StandardCard,
@@ -9,15 +10,20 @@ import {
 } from "@yext/search-ui-react";
 
 export default function SearchResults() {
-  /**
-   * The elements to be rendered in the Search page. The Algolia InstantSearch includes
-   * both customizable components, as used below, to cover most use cases. They can be customized
-   * as needed. It also includes React hooks to access both the search state and API to implement
-   * more complex use cases (automatic search triggering, completely custom components.)
-   */
+  const searchActions = useSearchActions();
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get("query");
+
+    if (query) {
+      searchActions.setQuery(query || "");
+      searchActions.executeVerticalQuery();
+    }
+  }, [searchActions]);
+
   return (
     <section className="row row-gap-2 mt-3">
-      {/* Sets up search configuration */}
       <div>
         <SearchBar />
         <SpellCheck />

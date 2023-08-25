@@ -1,5 +1,5 @@
 import Image from 'next/image'
-// import Autocomplete from '@/components/Autocomplete'
+import Autocomplete from '@/components/Autocomplete'
 
 export default function Navbar() {
   return (
@@ -29,11 +29,10 @@ export default function Navbar() {
           {/* Site-wide searchbar with autocomplete. Built to reroute to a given URL
             * with the necessary query parameters.
             */}
-          {/* <Autocomplete
+          <Autocomplete
             searchUrl='/search'
-            openOnFocus={true}
             placeholder='Search for products'
-          /> */}
+          />
         </div>
       </div>
     </nav>

@@ -9,7 +9,7 @@ export default function App({ children }) {
     apiKey: "a5776b9afa3bf3a2616a689aed0a987b",
     experienceKey: "turtlehead",
     locale: "en",
-    verticalKey: "faqs",
+    verticalKey: "restaurants",
     environment: Environment.SANDBOX,
   };
 
